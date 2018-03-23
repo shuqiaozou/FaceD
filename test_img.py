@@ -13,4 +13,5 @@ fontsize = min(im.size) / 8
 font = ImageFont.truetype('/Users/mac/Desktop/田相岳圆楷体.ttf', fontsize)
 # 画图
 draw.text((im.size[0] - fontsize * 2, 0), '100', font=font, fill=(0, 100, 100))
+# 保存
 im.save('/Users/mac/Desktop/2.png', 'png')
