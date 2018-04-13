@@ -2,22 +2,23 @@
 '''对视频中人像的捕捉'''
 
 import cv2
-import numpy
+# import numpy
 
+# 将视频读入到内存
 cap = cv2.VideoCapture("./imgs/demo.mp4")
 
-# 创建haar级联分类器
+# 创建haar级联分类器对象
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 while (1):
 
-    # 读取画面
+    # 读取视频每一帧
     ret, frame = cap.read()
 
     # 将每一帧画面进行灰度处理
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # 抓取图片中的人脸
+    # 多尺寸检测
     faces = faceCascade.detectMultiScale(
         gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 

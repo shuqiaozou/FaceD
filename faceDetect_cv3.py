@@ -3,9 +3,9 @@
 import cv2
 # import sys
 
-# 获取输入的图片
-imagePath = "./imgs/1.jpeg"
-cascPath = "haarcascade_frontalface_default.xml"
+# 获取输入的图片路径
+imagePath = "./imgs/计科4班.jpg"
+cascPath = "cascade0.xml"
 
 # 创建haar级联分类器对象
 faceCascade = cv2.CascadeClassifier(cascPath)
@@ -15,7 +15,7 @@ image = cv2.imread(imagePath)
 # 将图片转为灰度格式
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-# 识别图片中的人脸
+# 多尺度识别
 faces = faceCascade.detectMultiScale(
     gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 
